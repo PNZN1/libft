@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strlcpy.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/10/19 16:34:52 by pniezen       #+#    #+#                 */
+/*   Updated: 2021/10/19 16:34:52 by pniezen       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)

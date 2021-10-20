@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   ft_strnstr.c                                       :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/10/19 16:35:03 by pniezen       #+#    #+#                 */
+/*   Updated: 2021/10/20 12:44:17 by pniezen       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "libft.h"
 
 char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
@@ -13,13 +25,14 @@ char	*ft_strnstr(const char *haystack, const char *needle, size_t len)
 	{
 		if (haystack[i] == needle[l])
 		{
-			while (needle[l] != '\0' && haystack[i] == needle[l]
+			while (needle[l] != '\0' && haystack[i + l] == needle[l]
 				&& (i + l) < len)
 				l++;
 			if (needle[l] == '\0')
 				return ((char *) &haystack[i]);
 		}
 		i++;
+		l = 0;
 	}
 	return (0);
 }
