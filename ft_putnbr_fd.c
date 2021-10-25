@@ -1,19 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isprint.c                                       :+:    :+:            */
+/*   ft_putnbr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 16:34:16 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/25 11:50:53 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/25 16:37:12 by pniezen       #+#    #+#                 */
+/*   Updated: 2021/10/25 17:02:35 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <unistd.h>
+
+void	ft_putnbr_fd(int n, int fd)
 {
-	if (c >= ' ' && c <= '~')
-		return (1);
-	else
-		return (0);
+	if (n == -2147483648)
+	{
+		write(fd, "-2147483648", 11);
+		return ;
+	}
+	if (n < 0)
+	{
+		write(fd, "-", 1);
+		n = -n;
+	}
+	if (n / 10 != 0)
+		ft_putnbr_fd(n / 10, fd);
+	n = (n % 10) + '0';
+	write(fd, &n, 1);
 }

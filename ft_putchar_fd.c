@@ -1,19 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isprint.c                                       :+:    :+:            */
+/*   ft_putchar_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 16:34:16 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/25 11:50:53 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/25 16:19:34 by pniezen       #+#    #+#                 */
+/*   Updated: 2021/10/25 16:21:14 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+#include <unistd.h>
+
+void	ft_putchar_fd(char c, int fd)
 {
-	if (c >= ' ' && c <= '~')
-		return (1);
-	else
-		return (0);
+	write(fd, &c, 1);
 }

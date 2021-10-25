@@ -6,7 +6,7 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/21 10:08:03 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/21 17:06:06 by pniezen       ########   odam.nl         */
+/*   Updated: 2021/10/25 10:42:45 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ static size_t	len_wrds(const char *s, char c)
 	return (count);
 }
 
-static char	*find_word(const char *s, char c)
+static char	*find_word(char **words, const char *s, char c, size_t n)
 {
 	char	*str;
 	size_t	i;
@@ -48,13 +48,15 @@ static char	*find_word(const char *s, char c)
 		i++;
 	}
 	str[i] = '\0';
-	return (str);
+	words[n] = str;
+	return (*words);
 }
 
-void	check_free(char **words, char *str)
+static void	make_free(char **words, size_t n)
 {
-	if (!str)
-		free(words);
+	while (n > 0)
+		free(words[n]);
+	n--;
 }
 
 char	**ft_split(char const *s, char c)
@@ -67,15 +69,15 @@ char	**ft_split(char const *s, char c)
 	n = 0;
 	if (!s)
 		return (NULL);
-	words = malloc(((len_wrds(s, c) + 1) * sizeof(char *)));
+	words = ft_calloc((len_wrds(s, c) + 1), sizeof(*words));
 	if (!words)
 		return (NULL);
 	while (s[i])
 	{
 		if (s[i] != c)
 		{
-			words[n] = find_word((s + i), c);
-			check_free(words, words[n]);
+			if (!(find_word(words, (s + i), c, n)))
+				make_free(words, n);
 			n++;
 		}
 		while (s[i] != c && s[i])
@@ -83,6 +85,5 @@ char	**ft_split(char const *s, char c)
 		while (s[i] == c && s[i])
 			i++;
 	}
-	words[n] = NULL;
 	return (words);
 }

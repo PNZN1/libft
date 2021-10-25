@@ -1,19 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_isprint.c                                       :+:    :+:            */
+/*   ft_striteri.c                                      :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 16:34:16 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/25 11:50:53 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/25 16:09:15 by pniezen       #+#    #+#                 */
+/*   Updated: 2021/10/25 16:16:55 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_isprint(int c)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	if (c >= ' ' && c <= '~')
-		return (1);
-	else
-		return (0);
+	unsigned int	i;
+
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
