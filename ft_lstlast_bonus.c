@@ -1,19 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_front.c                                  :+:    :+:            */
+/*   ft_lstlast_bonus.c                                 :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/26 12:30:57 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/26 13:07:49 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/26 14:00:28 by pniezen       #+#    #+#                 */
+/*   Updated: 2021/10/28 15:18:24 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
-void	ft_lstadd_front(t_list **lst, t_list *new)
+t_list	*ft_lstlast(t_list *lst)
 {
-	new->next = *lst;
-	*lst = new;
+	if (!lst)
+		return (NULL);
+	while (lst->next != NULL)
+		lst = lst->next;
+	return (lst);
 }

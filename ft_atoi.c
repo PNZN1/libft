@@ -6,11 +6,9 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 16:33:40 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/19 16:36:44 by pniezen       ########   odam.nl         */
+/*   Updated: 2021/10/27 17:30:51 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
-
-#include "libft.h"
 
 int	ft_atoi(const char *str)
 {

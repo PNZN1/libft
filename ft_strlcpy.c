@@ -6,11 +6,12 @@
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/19 16:34:52 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/19 16:34:52 by pniezen       ########   odam.nl         */
+/*   Updated: 2021/10/27 17:29:39 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stdlib.h>
 
 size_t	ft_strlcpy(char *dst, const char *src, size_t dstsize)
 {

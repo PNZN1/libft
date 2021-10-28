@@ -1,16 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstadd_back.c                                   :+:    :+:            */
+/*   ft_lstadd_back_bonus.c                             :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
 /*   Created: 2021/10/26 14:09:34 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/26 14:46:39 by pniezen       ########   odam.nl         */
+/*   Updated: 2021/10/28 15:18:05 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
+#include <stddef.h>
 
 void	ft_lstadd_back(t_list **lst, t_list *new)
 {
@@ -24,5 +25,4 @@ void	ft_lstadd_back(t_list **lst, t_list *new)
 	}
 	last_node = ft_lstlast(*lst);
 	last_node->next = new;
-	new->next = NULL;
 }

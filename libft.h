@@ -1,7 +1,18 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        ::::::::            */
+/*   libft.h                                            :+:    :+:            */
+/*                                                     +:+                    */
+/*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
+/*                                                   +#+                      */
+/*   Created: 2021/10/28 12:57:25 by pniezen       #+#    #+#                 */
+/*   Updated: 2021/10/28 15:53:18 by pniezen       ########   odam.nl         */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef LIBFT_H
 # define LIBFT_H
-# include <stdio.h>
-# include <stdlib.h>
+# include <stddef.h>
 
 typedef struct s_list
 {
