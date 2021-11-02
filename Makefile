@@ -17,18 +17,15 @@ FLAGS = -Wall -Wextra -Werror
 OBJ = $(SRC:.c=.o)
 OBJ_BONUS = $(SRC_BONUS:_bonus.c=_bonus.o)
 
-all: $(NAME)
+all: $(NAME)($(OBJ))
 
-bonus: $(OBJ) $(OBJ_BONUS)
-	@echo "Creating bonus.."
-	ar rcs $(NAME) $(OBJ) $(OBJ_BONUS)
-
-$(NAME): $(OBJ)
-	@echo "Creating.."
-	ar rcs $(NAME) $(OBJ)
+bonus: $(NAME)($(OBJ)) $(NAME)($(OBJ_BONUS))
 
 %.o: %.c libft.h
 	$(CC) $(FLAGS) -c $<
+
+$(NAME): %.o
+	ar rcs $(NAME) $<
 
 clean:
 	@echo "Cleaning.."
