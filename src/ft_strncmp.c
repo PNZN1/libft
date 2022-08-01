@@ -1,27 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_putstr_fd.c                                     :+:    :+:            */
+/*   ft_strncmp.c                                       :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/25 16:22:21 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/25 16:25:23 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/19 16:34:59 by pniezen       #+#    #+#                 */
+/*   Updated: 2022/02/17 15:37:33 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
+#include <stdlib.h>
 
-void	ft_putstr_fd(char *s, int fd)
+int	ft_strncmp(const char *s1, const char *s2, size_t n)
 {
-	int	i;
-
-	i = 0;
-	if (!s)
-		return ;
-	while (s[i])
+	while (n > 0 && *s1)
 	{
-		write(fd, &s[i], 1);
-		i++;
+		if (*s1 != *s2)
+			return (*(unsigned char *) s1 - *(unsigned char *) s2);
+		s1++;
+		s2++;
+		n--;
 	}
+	if (n > 0 && *s1 != *s2)
+		return (*(unsigned char *) s1 - *(unsigned char *) s2);
+	return (0);
 }

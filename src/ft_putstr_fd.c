@@ -1,39 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_atoi.c                                          :+:    :+:            */
+/*   ft_putstr_fd.c                                     :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 16:33:40 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/27 17:30:51 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/25 16:22:21 by pniezen       #+#    #+#                 */
+/*   Updated: 2022/08/01 11:50:03 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	ft_atoi(const char *str)
+#include <unistd.h>
+
+void	ft_putstr_fd(char *s, int fd)
 {
-	int		i;
-	int		sign;
-	long	res;
+	int	i;
 
 	i = 0;
-	sign = 1;
-	res = 0;
-	if (*str == '\0')
-		return (0);
-	while (str[i] == '\t' || str[i] == '\n' || str[i] == '\v'
-		|| str[i] == '\f' || str[i] == '\r' || str[i] == ' ')
+	if (!s)
+		return ;
+	while (s[i])
 		i++;
-	if (str[i] == '-' || str[i] == '+')
-	{
-		if (str[i] == '-')
-			sign *= -1;
-		i++;
-	}
-	while (str[i] >= '0' && str[i] <= '9')
-	{
-		res = res * 10 + str[i] - '0';
-		i++;
-	}
-	return (res * sign);
+	write(fd, s, i);
 }

@@ -1,26 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_lstnew_bonus.c                                  :+:    :+:            */
+/*   ft_putendl_fd.c                                    :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/26 11:18:50 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/28 15:18:32 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/25 16:27:50 by pniezen       #+#    #+#                 */
+/*   Updated: 2022/08/01 11:50:25 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "libft.h"
-#include <stdlib.h>
+#include <unistd.h>
 
-t_list	*ft_lstnew(void *content)
+void	ft_putendl_fd(char *s, int fd)
 {
-	t_list	*node;
+	int	i;
 
-	node = malloc(sizeof(*node));
-	if (!node)
-		return (NULL);
-	node->content = content;
-	node->next = NULL;
-	return (node);
+	i = 0;
+	if (!s)
+		return ;
+	while (s[i])
+		i++;
+	write(fd, s, i);
+	write(fd, "\n", 1);
 }

@@ -1,28 +1,26 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        ::::::::            */
-/*   ft_strncmp.c                                       :+:    :+:            */
+/*   ft_lstnew_bonus.c                                  :+:    :+:            */
 /*                                                     +:+                    */
 /*   By: pniezen <pniezen@student.codam.nl>           +#+                     */
 /*                                                   +#+                      */
-/*   Created: 2021/10/19 16:34:59 by pniezen       #+#    #+#                 */
-/*   Updated: 2021/10/27 17:37:06 by pniezen       ########   odam.nl         */
+/*   Created: 2021/10/26 11:18:50 by pniezen       #+#    #+#                 */
+/*   Updated: 2022/02/07 09:08:32 by pniezen       ########   odam.nl         */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "libft.h"
 #include <stdlib.h>
 
-int	ft_strncmp(const char *s1, const char *s2, size_t n)
+t_list	*ft_lstnew(void *content)
 {
-	while (n > 0 && *s1)
-	{
-		if (*s1 != *s2)
-			return (*(unsigned char *) s1 - *(unsigned char *) s2);
-		s1++;
-		s2++;
-		n--;
-	}
-	if (n > 0 && *s1 != *s2)
-		return (*(unsigned char *) s1 - *(unsigned char *) s2);
-	return (0);
+	t_list	*node;
+
+	node = malloc(sizeof(*node));
+	if (!node)
+		return (NULL);
+	node->content = content;
+	node->next = NULL;
+	return (node);
 }
